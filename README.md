@@ -108,55 +108,6 @@ Detailed production deployment guides (including Nginx reverse proxy, SSL/TLS, a
 
 ---
 
-## 📁 Repository Structure
-
-```text
-├── .gitignore
-├── Dockerfile
-├── LICENSE
-├── README.md
-├── deploy/
-│   ├── Caddyfile
-│   ├── nginx.conf
-│   └── silhouette-reaper.service
-├── docker-compose.yml
-├── docs/
-│   ├── PRODUCTION_DEPLOYMENT.md
-│   └── css_design_system_and_styling_guide.md
-├── package.json
-├── public/
-│   └── logo.svg
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── evidence/
-│   │   │   ├── investigations/
-│   │   │   ├── reports/
-│   │   │   └── verify/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── verify/
-│   │   └── workspace/
-│   ├── components/
-│   │   ├── forensic/
-│   │   ├── layout/
-│   │   └── ui/
-│   ├── lib/
-│   │   ├── db/
-│   │   ├── engines/
-│   │   ├── report/
-│   │   └── utils/
-│   └── types/
-│       └── forensics.ts
-├── tests/
-│   ├── e2e_investigation_lifecycle.ts
-│   └── unit_forensic_engines.test.ts
-└── tsconfig.json
-```
-
----
-
 ## 🛡️ Security & Privacy Model
 
 1. **Zero Personally Identifiable Information (PII)**: No user registration, no email required, no third-party tracking cookies or external analytical beacons.
