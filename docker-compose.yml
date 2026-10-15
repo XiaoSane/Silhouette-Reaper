@@ -1,0 +1,32 @@
+# =========================================================================
+# SILHOUETTE REAPER - DOCKER COMPOSE CONFIGURATION
+# Production deployment with persistent volume and healthcheck
+# =========================================================================
+
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: silhouette-reaper-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      # Persistent forensic database and evidence vault volume
+      - forensic-storage:/app/storage
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  forensic-storage:
+    driver: local

@@ -1,0 +1,30 @@
+# =========================================================================
+# SILHOUETTE REAPER - CADDY REVERSE PROXY CONFIGURATION
+# Caddy automatically provisions and renews Let's Encrypt SSL certificates
+# =========================================================================
+
+forensics.yourdomain.com {
+    # Automatic HTTPS & Compression
+    encode gzip zstd
+
+    # Maximum upload body size for evidence binaries (100 MB)
+    request_body {
+        max_size 100MB
+    }
+
+    # Security Headers
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    }
+
+    # Proxy to local Next.js instance
+    reverse_proxy 127.0.0.1:3000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}

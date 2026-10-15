@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: dark;
+  --bg-base: #06080d;
+  --bg-surface: #0a0a0f;
+  --bg-elevated: #11121c;
+  --glass-bg: rgba(18, 20, 32, 0.72);
+  --glass-bg-hover: rgba(26, 29, 46, 0.88);
+  --glass-border: rgba(251, 191, 36, 0.18);
+  --glass-border-hover: rgba(251, 191, 36, 0.45);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-glow: rgba(251, 191, 36, 0.2);
+  --amber-glow-strong: rgba(251, 191, 36, 0.35);
+  --green-data: #86efac;
+  --red-alert: #ef4444;
+  --text-primary: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glass Panels */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), 0 0 16px var(--amber-glow);
+}
+
+.glass-panel-subtle {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border-subtle);
+}
+
+.glass-panel-amber {
+  background: rgba(245, 158, 11, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--amber-500);
+  box-shadow: 0 0 20px var(--amber-glow);
+}
+
+/* Cybernetic Grid */
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.bg-radial-amber {
+  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+}
+
+/* Monospace Telemetry */
+.font-mono-data {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--green-data);
+}
+
+/* Custom Ultra-Clean Scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Sleek Minimalist Global Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.5);
+}
+
+::selection {
+  background-color: #f59e0b;
+  color: #000000;
+}

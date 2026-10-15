@@ -1,0 +1,31 @@
+# =========================================================================
+# SILHOUETTE REAPER - SYSTEMD SERVICE CONFIGURATION
+# Place in /etc/systemd/system/silhouette-reaper.service
+# =========================================================================
+
+[Unit]
+Description=Silhouette Reaper Anonymous Digital Forensics Platform
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/silhouette-reaper
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=NEXT_TELEMETRY_DISABLED=1
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=silhouette-reaper
+
+# Security sandbox
+ProtectSystem=full
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
